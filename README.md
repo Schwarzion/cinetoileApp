@@ -26,4 +26,8 @@ To install and use the project you must have installed:
 
     cd <project_folder>
     npm install
-    npx react-native run-android/run-ios
+    npx react-native run-android/run-ios (make sure to plug your device on your computer)
+
+    You can enable Live Reload on your android device by shaking it and tapping on "Enable Live Reload"
+
+    
