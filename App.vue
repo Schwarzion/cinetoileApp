@@ -1,17 +1,29 @@
 <template>
-  <view class="container">
-    <text class="text-color-primary">Cinétoile</text>
-  </view>
+  <app-navigator></app-navigator>
 </template>
 
-<style>
-.container {
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
+<script>
+import {
+  createAppContainer,
+  createStackNavigator,
+} from "vue-native-router";
+
+import HomeScreen from "./pages/HomeScreen.vue";
+import Test from "./pages/Test.vue";
+
+const StackNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Test: Test,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+const AppNavigator = createAppContainer(StackNavigator);
+
+export default {
+  components: { AppNavigator },
 }
-.text-color-primary {
-  color: blue;
-}
-</style>
+</script>
