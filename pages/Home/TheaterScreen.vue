@@ -44,7 +44,7 @@
 <script>
   import Icon from "react-native-vector-icons/FontAwesome5";
   import MovieListItem from "../../components/MovieListItem";
-  import { getMovies } from '../../services/movie.service';
+  import { getMoviesFromTheater } from '../../services/movie.service';
 
   export default {
     components: { Icon, MovieListItem },
@@ -61,19 +61,19 @@
       },
     },
     methods: {
-      async getMovies() {
+      async getMovies(theaterId) {
         this.isLoading = true;
-        const res = await getMovies();
+        const res = await getMoviesFromTheater(theaterId);
         this.movies = res.data;
         this.isLoading = false;
       },
       goToMovieScreen(movie) {
-        this.navigation.navigate("Movie", {movie})
+        this.navigation.navigate("Movie", {movieId: movie.movieId, movieName: movie.name})
       }
     },
     beforeMount() {
       this.theater = this.navigation.state.params.theater;
-      this.getMovies()
+      this.getMovies(this.theater.id)
     }
   }
 </script>

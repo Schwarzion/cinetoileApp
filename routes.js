@@ -37,7 +37,7 @@ export default ROUTES = {
     screen: MovieScreen,
     navigationOptions: 
       ({navigation}) => ({
-          title: navigation.state.params.movie.name,
+          title: navigation.state.params.movieName,
           ...headerOptions
         
     })

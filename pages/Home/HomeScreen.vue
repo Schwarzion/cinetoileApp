@@ -1,17 +1,19 @@
 <template>
-  <view>
-    <text class="title">Les cinémas autour de moi</text>
-    <view class="list">
-      <text v-if="isLoading">Chargement ...</text>
-      <theater-list-item
-        v-else
-        v-for="theater in theaters"
-        @press.native="() => goToTheaterScreen(theater)"
-        :key="theater.id"
-        :item="theater"
-      />
-    </view>
-  </view>
+  <scroll-view>
+    <view>
+        <text class="title">Les cinémas autour de moi</text>
+        <view class="list">
+          <text v-if="isLoading">Chargement ...</text>
+          <theater-list-item
+            v-else
+            v-for="theater in theaters"
+            @press.native="() => goToTheaterScreen(theater)"
+            :key="theater.id"
+            :item="theater"
+          />
+        </view>
+      </view>
+  </scroll-view>
 </template>
 
 <script>
@@ -39,10 +41,7 @@ export default {
     async getTheaters() {
       this.isLoading = true;
       const res = await getTheaters();
-      this.theaters = res.data
-        .concat(res.data)
-        .concat(res.data)
-        .concat(res.data);
+      this.theaters = res.data;
       this.isLoading = false;
     },
     goToTheaterScreen(theater) {
