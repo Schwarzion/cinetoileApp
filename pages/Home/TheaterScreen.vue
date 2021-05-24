@@ -36,7 +36,7 @@
    <view class="featured">
      <text class="title">À l'affiche</text>
      <view v-if="!isLoading" class="list">
-       <movie-list-item v-for="movie in movies" v-bind:key="movie.id" :item="movie" />
+       <movie-list-item v-for="movie in movies" v-bind:key="movie.id" :item="movie" @press.native="() => goToMovieScreen(movie)" />
      </view>
    </view>
   </scroll-view>
@@ -66,6 +66,9 @@
         const res = await getMovies();
         this.movies = res.data;
         this.isLoading = false;
+      },
+      goToMovieScreen(movie) {
+        this.navigation.navigate("Movie", {movie})
       }
     },
     beforeMount() {
@@ -114,9 +117,9 @@
     margin-top: 32px;
   }
   .list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 </style>

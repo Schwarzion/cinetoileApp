@@ -1,5 +1,6 @@
 import HomeScreen from "./pages/Home/HomeScreen.vue";
 import TheaterScreen from "./pages/Home/TheaterScreen.vue";
+import MovieScreen from "./pages/Home/MovieScreen.vue";
 import LikeScreen from "./pages/Like/LikeScreen.vue";
 import ProfileScreen from "./pages/Profile/ProfileScreen.vue";
 import ReservationScreen from "./pages/Reservation/ReservationScreen.vue";
@@ -30,8 +31,17 @@ export default ROUTES = {
           title: navigation.state.params.theater.name,
           ...headerOptions
         
-  })
-},
+    })
+  },
+  Movie: {
+    screen: MovieScreen,
+    navigationOptions: 
+      ({navigation}) => ({
+          title: navigation.state.params.movie.name,
+          ...headerOptions
+        
+    })
+  },
   Like: {
     screen: LikeScreen,
     navigationOptions: {

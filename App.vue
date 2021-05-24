@@ -20,7 +20,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 */
 
 const HomeStack = createStackNavigator(
-  { stack: ROUTES.Home, Theater: ROUTES.Theater },
+  { stack: ROUTES.Home, Theater: ROUTES.Theater, Movie: ROUTES.Movie },
   {
     navigationOptions: {
       tabBarIcon: ({ tintColor }) => (

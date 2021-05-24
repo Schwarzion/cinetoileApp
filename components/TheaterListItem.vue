@@ -45,6 +45,7 @@ export default {
   flex-direction: column;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
+  padding: 4px;
 }
 .title {
   font-size: 18px;

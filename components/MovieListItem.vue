@@ -15,7 +15,7 @@
    <!--   <view v-for="category in movie.category" v-bind:key="category.id">
         <text>{{category}}</text>
       </view> -->
-      <text>Action Drame</text>
+      <text class="genre">Action Drame</text>
     </view>
   </touchable-opacity>
 </template>
@@ -46,12 +46,13 @@
   flex-direction: column;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
+  padding: 4px;
 }
 .title {
   font-size: 18px;
   color: #454545;
 }
-.address {
+.genre {
   font-size: 10px;
   color: #580015;
 }
