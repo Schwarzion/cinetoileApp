@@ -1,7 +1,8 @@
-import HomeScreen from "./pages/HomeScreen.vue";
-import LikeScreen from "./pages/LikeScreen.vue";
-import ProfileScreen from "./pages/ProfileScreen.vue";
-import ReservationScreen from "./pages/ReservationScreen.vue";
+import HomeScreen from "./pages/Home/HomeScreen.vue";
+import TheaterScreen from "./pages/Home/TheaterScreen.vue";
+import LikeScreen from "./pages/Like/LikeScreen.vue";
+import ProfileScreen from "./pages/Profile/ProfileScreen.vue";
+import ReservationScreen from "./pages/Reservation/ReservationScreen.vue";
 import React from "react";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { THEME } from "./ui/index";
@@ -19,12 +20,18 @@ export default ROUTES = {
     screen: HomeScreen,
     navigationOptions: {
       title: "Ciné'toile",
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="home" solid size={22} color={tintColor} />
-      ),
       ...headerOptions,
     },
   },
+  Theater: {
+    screen: TheaterScreen,
+    navigationOptions: 
+      ({navigation}) => ({
+          title: navigation.state.params.theater.name,
+          ...headerOptions
+        
+  })
+},
   Like: {
     screen: LikeScreen,
     navigationOptions: {
@@ -33,18 +40,12 @@ export default ROUTES = {
         App.vue file
       */
       title: "Mes Favoris",
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="heart" solid size={22} color={tintColor} />
-      ),
       ...headerOptions,
     },
   },
   Reservation: {
     screen: ReservationScreen,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="ticket-alt" size={22} color={tintColor} />
-      ),
       ...headerOptions,
       title: "Mes réservations",
     },
@@ -52,9 +53,6 @@ export default ROUTES = {
   Profile: {
     screen: ProfileScreen,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => (
-        <Icon name="user-circle" solid size={22} color={tintColor} />
-      ),
       ...headerOptions,
       title: "Mon profil",
     },

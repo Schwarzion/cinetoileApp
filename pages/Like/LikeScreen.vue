@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import { testApi } from "../services/test.service";
+import { testApi } from "../../services/test.service";
 
 export default {
-data() {
+  data() {
     return {
       msg: "",
     };
@@ -18,8 +18,8 @@ data() {
   // Declare `navigation` as a prop
   props: {
     navigation: {
-      type: Object
-    }
+      type: Object,
+    },
   },
 
   //Equivalent d'un ComponentDidMount ou d'un UseEffect en React -> gère le cycle de vie du composant
@@ -33,11 +33,10 @@ data() {
     },
 
     async getMsg() {
-      const res = await testApi()
-
+      const res = await testApi();
       //this.msg correspond à la variable msg initialisé plus haut dans data()
       this.msg = res.data;
-    }
-  }
-}
+    },
+  },
+};
 </script>
