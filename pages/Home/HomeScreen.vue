@@ -1,5 +1,6 @@
 <template>
   <scroll-view>
+    <maps />
     <view>
         <text class="title">Les cinémas autour de moi</text>
         <view class="list">
@@ -19,9 +20,10 @@
 <script>
 import { getTheaters } from "../../services/theater.service";
 import TheaterListItem from "../../components/TheaterListItem";
+import Maps from '../../components/Maps';
 
 export default {
-  components: { TheaterListItem },
+  components: { TheaterListItem, Maps },
   data() {
     return {
       theaters: [],
